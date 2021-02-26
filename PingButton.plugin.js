@@ -4,8 +4,8 @@
  * @authorLink undefined
  * @donate undefined
  * @patreon undefined
- * @website 
- * @source 
+ * @website https://github.com/GovernedSquid6/PingButton
+ * @source https://raw.githubusercontent.com/GovernedSquid6/PingButton/main/PingButton.plugin.js
  */
 /*@cc_on
 @if (@_jscript)
@@ -32,7 +32,7 @@
 @else@*/
 
 module.exports = (() => {
-    const config = {"info":{"name":"PingButton","authors":[{"name":"Grant","discord_id":"664959346681315334","github_username":"GovernedSquid6","twitter_username":"TheGayMankini"}],"version":"0.1.3","description":"Adds a clickable ping button.","github":"","github_raw":""},"changelog":[],"main":"index.js"};
+    const config = {"info":{"name":"PingButton","authors":[{"name":"Grant","discord_id":"664959346681315334","github_username":"GovernedSquid6","twitter_username":"TheGayMankini"}],"version":"1.0.0","description":"Adds a clickable ping button.","github":"https://github.com/GovernedSquid6/PingButton","github_raw":"https://raw.githubusercontent.com/GovernedSquid6/PingButton/main/PingButton.plugin.js"},"changelog":[],"main":"index.js"};
 
     return !global.ZeresPluginLibrary ? class {
         constructor() {this._config = config;}
