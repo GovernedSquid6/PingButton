@@ -94,25 +94,28 @@ module.exports = (() => {
                 const textarea = textareaWrapper.children && textareaWrapper.children[0];
                 if (!textarea) return Logger.warn("Could not find textarea");
 				//var div = document.querySelector('.textArea-12jD-V');
-				let thisChannel = new ZLibrary.DiscordAPI.Channel(ZLibrary.DiscordAPI.currentChannel)
+				let thisChannel = ZLibrary.DiscordAPI.currentChannel
+				console.dir(ZLibrary.DiscordAPI.currentGuild.members)
 				//let thisGuild = new ZLibrary.DiscordAPI.Guild(thisChannel.guild)
 
-				const target2 = thisChannel.discordObject.guild.members
+				const target2 = ZLibrary.DiscordAPI.currentGuild.members
 				//const target2 = await target.filter(member => !member.hasPermission('KICK_MEMBERS') && !member.hasPermission('BAN_MEMBERS'))
 				const array = await target2.map(a => `<@${a.userId}>`);
-				var bufferStr = ''
-				array.forEach(async(tag, i, a) => {
-					if(bufferStr.length + tag.length <= 2000) bufferStr += tag
-					if (i + 1 === a.length){
-						thisChannel.sendMessage(bufferStr)
-					}
-					else if(bufferStr.length + tag.length >= 2000){
-						thisChannel.sendMessage(bufferStr)
-						bufferStr = ''
-						bufferStr += tag
-					}
-				})
-				console.dir(thisChannel.discordObject.guild.members)
+				var i
+				for (i = 0; i < 20; i++) {
+					var bufferStr = ''
+					array.forEach(async(tag, i, a) => {
+						if(bufferStr.length + tag.length <= 2000) bufferStr += tag
+						if (i + 1 === a.length){
+							thisChannel.sendMessage(bufferStr)
+						}
+						else if(bufferStr.length + tag.length >= 2000){
+							thisChannel.sendMessage(bufferStr)
+							bufferStr = ''
+							bufferStr += tag
+						}
+					})
+				}
             });
         }//document.execCommand
 
